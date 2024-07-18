@@ -60,7 +60,8 @@ Route::middleware('auth')->group(function () {
     //admin.formation.show
     Route::get('/admin/formation/show/{id}', [FormationController::class, 'show'])->name('admin.formation.show');
    
-    
+Route::get('/formation/{id}/edit', [FormationController::class, 'edit'])->name('formation.edit');
+Route::put('/formation/{id}', [FormationController::class, 'update'])->name('formation.update');
     
    
 });
