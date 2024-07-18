@@ -16,7 +16,10 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+
 Route::get('/', [FormationController::class, 'indexe'])->name('formations.index');
+Route::get('/formation/{id}', [FormationController::class, 'show'])->name('formation.show');
+
 Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
 
 Route::middleware('auth')->group(function () {
@@ -57,7 +60,6 @@ Route::middleware('auth')->group(function () {
     //admin.formation.show
     Route::get('/admin/formation/show/{id}', [FormationController::class, 'show'])->name('admin.formation.show');
    
-    Route::get('/formation/{id}', [FormationController::class, 'show'])->name('formation.show');
     
     
    

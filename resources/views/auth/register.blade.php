@@ -121,7 +121,7 @@
                 <label for="role">Choix du rôle</label>
                 <select id="role" name="role" required>
                     <option value="rescuer">Secouriste</option>
-                    <option value="client">Client</option>
+                    <option value="client">Victime</option>
                 </select>
                 @if ($errors->has('role'))
                     <span class="error">{{ $errors->first('role') }}</span>
