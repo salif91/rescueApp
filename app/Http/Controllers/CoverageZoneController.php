@@ -110,4 +110,16 @@ class CoverageZoneController extends Controller
             return redirect()->back()->with('error', 'Vous n\'êtes pas autorisé à supprimer cette zone de couverture !');
         }
     }
+
+    public function destroyAdminZone($id)
+    {
+        $zone = Polygon::findOrFail($id);
+
+        if ($zone->user_id == auth()->id()) {
+            $zone->delete();
+            return redirect()->back()->with('success', 'Zone de couverture supprimée avec succès !');
+        } else {
+            return redirect()->back()->with('error', 'Vous n\'êtes pas autorisé à supprimer cette zone de couverture !');
+        }
+    }
 }

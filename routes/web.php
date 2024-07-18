@@ -35,11 +35,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/coverage-zone/create', [CoverageZoneController::class, 'create'])->name('coverage_zone.create');
     Route::post('/coverage-zone', [CoverageZoneController::class, 'store'])->name('coverage_zone.store');
     Route::delete('/coverage-zone/{id}', [CoverageZoneController::class, 'destroy'])->name('coverage_zone.destroy');
-    Route::get('/users/index', [AdminController::class, 'index'])->name('users.index');
+    Route::get('/users/index', [AdminController::class, 'users'])->name('users.index');
     Route::get('/zones/index', [AdminController::class, 'zones'])->name('zones.index');
     Route::get('/users/edit/{id}', [AdminController::class, 'edit'])->name('users.edit');
     Route::patch('/users/update/{id}', [AdminController::class, 'update'])->name('users.update');
-    Route::delete('/users/destroy/{id}', [AdminController::class, 'destroy'])->name('users.destroy');
+    Route::delete('/users/destroy/{id}', [AdminController::class, 'destroyUsers'])->name('users.destroy');
     Route::get('/users/create', [AdminController::class, 'create'])->name('users.create');
     Route::post('/rescuer/announcements/accept/{id}', [AnnouncementController::class, 'accept'])->name('rescuer.announcements.accept');
     Route::get('/rescuer/announcements/show/{id}', [AnnouncementController::class, 'show'])->name('rescuer.announcements.show');
@@ -62,6 +62,10 @@ Route::middleware('auth')->group(function () {
    
 Route::get('/formation/{id}/edit', [FormationController::class, 'edit'])->name('formation.edit');
 Route::put('/formation/{id}', [FormationController::class, 'update'])->name('formation.update');
+
+
+Route::delete('/admin/coverage-zone/{id}', [CoverageZoneController::class, 'destroyAdminZone'])->name('admin.coverage_zone.destroy');
+
     
    
 });

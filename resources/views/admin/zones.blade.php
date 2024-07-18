@@ -53,11 +53,11 @@
                                     </td>
                                     <td>
 
-                                        <form action="{{route('coverage_zone.destroy',$zone->id)}}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
+                                    <form action="{{ route('admin.coverage_zone.destroy', $zone->id) }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this zone?');">Supprimer</button>
+</form>
 
                                     </td>
 

@@ -44,19 +44,15 @@
                                     <td>{{ $user->role }}</td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                            <a href="{{ route('users.edit', $user->id) }}"
-                                                class="btn btn-primary btn-sm">
-                                                <i class="fa fa-edit"></i> Edit
-                                            </a>
+                                         
                                             &ensp;
-                                            <form action="{{ route('users.destroy', $user->id) }}" method="post"
-                                                style="display: inline;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                    <i class="fa fa-trash"></i> Delete
-                                                </button>
-                                            </form>
+                                            <form action="{{ route('users.destroy', $user->id) }}" method="post" style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this user?');">
+                            <i class="fa fa-trash"></i> Supprimer
+                        </button>
+                    </form>
                                         </div>
                                     </td>
                                 </tr>

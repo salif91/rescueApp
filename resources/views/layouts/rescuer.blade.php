@@ -67,7 +67,7 @@
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button type="submit" class="btn btn-link nav-link">
-                                    {{ Auth::user()->name }} | Déconnexion
+                                  Déconnexion
                                 </button>
                             </form>
                         </li>

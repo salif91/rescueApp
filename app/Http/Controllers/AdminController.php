@@ -33,4 +33,14 @@ class AdminController extends Controller
         $zones = Polygon::all();
         return view('admin.zones', compact('zones'));
     }
+
+    public function destroyUsers($id)
+    {
+        $user = User::findOrFail($id);
+
+        // Supprimer l'utilisateur
+        $user->delete();
+
+        return redirect()->route('users.index')->with('success', 'User has been deleted');
+    }
 }
